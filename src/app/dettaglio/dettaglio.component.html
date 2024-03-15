@@ -1,0 +1,30 @@
+<div class="mx-2">
+
+</div><div class="my-5 d-flex justify-content-between">
+  <h2>Dettaglio</h2>
+  <button type="button" class="btn btn-primary btn-lg" routerLink="">indietro</button>
+</div>
+<div class="py-2">
+
+  <div class="card" *ngIf="(cuboSelezionato$ | async)?.isSome()">
+    <div class="row g-0">
+      <div class="col-md-4" [style.background-color]="(cuboSelezionato$ | async)?.unwrap()?.colore" ></div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{(cuboSelezionato$ | async)?.unwrap()?.nome}}</h5>
+          <p class="card-text">
+            Qui andrebbe una descrizione, ma mi sono dimenticato aggiungere il campo.
+            <br/>
+            <span class="badge text-bg-danger">X</span> = {{ (cuboSelezionato$ | async)?.unwrap()?.x }} m<br/>
+            <span class="badge text-bg-success">Y</span> = {{ (cuboSelezionato$ | async)?.unwrap()?.y }} m<br/>
+            <span class="badge text-bg-primary">Z</span> = {{ (cuboSelezionato$ | async)?.unwrap()?.z }} m<br/>
+            Il peso: {{ (cuboSelezionato$ | async)?.unwrap()?.peso }} g
+          </p>
+          <p class="card-footer">
+            Ultimo update: {{ formatDate((cuboSelezionato$ | async)?.unwrap()?.lastupdate!)}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

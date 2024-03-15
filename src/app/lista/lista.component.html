@@ -1,0 +1,31 @@
+<div class="m-5">
+  <h2>{{ titolo }}</h2>
+</div>
+<div class="py-2">
+  <table class="table">
+    <thead class="bg-primary bg-light">
+    <th scope="col">Nome</th>
+    <th scope="col">Colore</th>
+    <th scope="col">Dimensioni (
+      <span class="badge text-bg-danger">X</span>
+      <span class="badge text-bg-success">Y</span>
+      <span class="badge text-bg-primary">Z</span>)
+    </th>
+    <th scope="col">Azioni</th>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let cubo of lista$ | async">
+      <td> {{ cubo.nome }}</td>
+      <td> <span class="badge" [style.background-color]="cubo.colore">&nbsp;</span> </td>
+      <td>
+        <span class="badge text-bg-danger">{{ cubo.x }}</span>
+        <span class="badge text-bg-success">{{ cubo.y }}</span>
+        <span class="badge text-bg-primary">{{ cubo.z }}</span>
+      </td>
+      <td>
+        <button type="button" class="btn bg-primary text-light" (click)="select(cubo)" routerLink="dettaglio" >icona</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
